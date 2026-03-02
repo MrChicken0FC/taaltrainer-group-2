@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Taal Leer Website Pro</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <title>Sololingo</title>
 </head>
 <body>
-    <p>hallo</p>
+
+<h2>Taal Leer Website</h2>
+
+<label>Kies niveau:</label>
+<select id="niveau">
+    <option value="makkelijk">Makkelijk</option>
+    <option value="moeilijk">Moeilijk</option>
+</select>
+
+<p>Tijd: <span id="tijd">10</span> seconden</p>
+
+<h3 id="vraag"></h3>
+
+<input type="text" id="antwoord" placeholder="Typ je vertaling">
+<button onclick="controleer()">Controleer</button>
+<button onclick="spreekUit()">🔊 Uitspraak</button>
+
+<p id="feedback"></p>
+<p>Score: <span id="score">0</span></p>
+
+<div id="eindscherm" style="display:none;">
+    <h2>📊 Resultaat</h2>
+    <p id="eindscore"></p>
+    <button onclick="restart()">Opnieuw spelen</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
