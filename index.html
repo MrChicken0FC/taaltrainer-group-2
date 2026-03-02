@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Taal App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f4f4f4;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <div class="card">
+    <h2>Vertaal het woord:</h2>
+    <h3 id="question">hond</h3>
+
+    <input type="text" id="answer" placeholder="Typ je antwoord">
+    <br>
+    <button onclick="checkAnswer()">Controleer</button>
+
+    <p id="feedback"></p>
+    <p>Score: <span id="score">0</span></p>
+  </div>
+
+<script>
+  const words = [
+    { nl: "hond", en: "dog" },
+    { nl: "kat", en: "cat" },
+    { nl: "huis", en: "house" }
+  ];
+
+  let currentWord;
+  let score = 0;
+
+  function newQuestion() {
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    document.getElementById("question").textContent = currentWord.nl;
+    document.getElementById("answer").value = "";
+    document.getElementById("feedback").textContent = "";
+  }
+
+  function checkAnswer() {
+    const userAnswer = document.getElementById("answer").value.toLowerCase();
+
+    if (userAnswer === currentWord.en) {
+      score++;
+      document.getElementById("feedback").textContent = "✅ Goed gedaan!";
+    } else {
+      document.getElementById("feedback").textContent = "❌ Fout! Het juiste antwoord is: " + currentWord.en;
+    }
+
+    document.getElementById("score").textContent = score;
+    setTimeout(newQuestion, 1500);
+  }
+
+  newQuestion();
+</script>
+
 </body>
 </html>
