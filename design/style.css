@@ -1,3 +1,29 @@
 body {
-    background-color: white;
+    background-color: hotpink;
+    font-family:sans-serif;
+}
+header {
+    text-align:center;
+}
+
+.LatijnsLink {
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, paleturquoise, pink);
+    text-decoration: none;
+    color: black;
+    border-radius: 12px;
+    font-size:large;
+}
+
+.FransLink {
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, paleturquoise, pink);
+    text-decoration: none;
+    color: black;
+    border-radius: 12px;
+    font-size:large;
+}
+
+.knoppen {
+    text-align: center;
 }
