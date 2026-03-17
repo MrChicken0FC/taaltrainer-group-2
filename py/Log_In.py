@@ -2,7 +2,7 @@ import os
 import json
 
 #variable levels
-level1 = (0)
+level1 = (1)
 
 #pathing
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -30,29 +30,31 @@ def account_bestaat(email, wachtwoord):
         if account["email"] == email and account["wachtwoord"] == wachtwoord:
             return True
     return False
-def voeg_level_toe(email, level):
-    for account in inlog["Accounts"]:
-        if account["email"] == email:
+def data_send(email, level):
+    if data == ("1"):
+        for account in inlog["Accounts"]:
+                if account["email"] == email:
 
-            if "data" not in account:
-                account["data"] = {"levels_unlocked": []}
+                    if "data" not in account:
+                        email["data"] = {"levels_unlocked": []}
 
-            if level not in account["data"]["levels_unlocked"]:
-                account["data"]["levels_unlocked"].append(level)
+                    if level not in account["data"]["levels_unlocked"]:
+                        email["data"]["levels_unlocked"].append(level)
 
-            save_inlog()
-            return True
+                save_inlog()
+                return True
 
-    return False
-
+        return False
+     
 #sign in
 while True:
     email = input("Voer uw email in:\n")
     wachtwoord = input("Voer uw wachtwoord in:\n")
     if account_bestaat(email, wachtwoord):
         print("Inloggen gelukt!!!")
-        
-            
+        data = input("")
+        if data_send(email, level1):
+            print ("data was send")
         break
     else:
         print("De mail of het wachtwoord is fout")
