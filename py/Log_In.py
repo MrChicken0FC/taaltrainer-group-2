@@ -1,61 +1,132 @@
+from flask import Flask, request, jsonify, session, redirect, render_template
 import os
 import json
 
-#variable levels
-level1 = (1)
+app = Flask(__name__)
+app.secret_key = "super_secret_key_123"
 
-#pathing
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INLOG_PATH = os.path.join(BASE_DIR, "AccountData", "Account.json")
 
-#Json load
+# LOAD JSON
 try:
     with open(INLOG_PATH, "r", encoding="utf-8") as f:
         inlog = json.load(f)
 except:
-    inlog = {}
+    inlog = {"Accounts": []}
 
-if "Accounts" not in inlog:
-    inlog["Accounts"] = []
-
-#def functions
 def save_inlog():
     os.makedirs(os.path.dirname(INLOG_PATH), exist_ok=True)
     with open(INLOG_PATH, "w", encoding="utf-8") as f:
         json.dump(inlog, f, indent=2)
-    print("Saved to:", INLOG_PATH)
 
-def account_bestaat(email, wachtwoord):
-    for account in inlog["Accounts"]:
-        if account["email"] == email and account["wachtwoord"] == wachtwoord:
-            return True
-    return False
-def data_send(email, level):
-    if data == ("1"):
-        for account in inlog["Accounts"]:
-                if account["email"] == email:
+def get_account(email):
+    for acc in inlog["Accounts"]:
+        if acc["email"] == email:
+            return acc
+    return None
 
-                    if "data" not in account:
-                        email["data"] = {"levels_unlocked": []}
+# ---------------- ROUTES ---------------- #
 
-                    if level not in account["data"]["levels_unlocked"]:
-                        email["data"]["levels_unlocked"].append(level)
+@app.route("/")
+def home():
+    if "user" in session:
+        return redirect("/dashboard")
+    return redirect("/login")
 
-                save_inlog()
-                return True
+@app.route("/login")
+def login_page():
+    return render_template("login.html")
 
-        return False
-     
-#sign in
-while True:
-    email = input("Voer uw email in:\n")
-    wachtwoord = input("Voer uw wachtwoord in:\n")
-    if account_bestaat(email, wachtwoord):
-        print("Inloggen gelukt!!!")
-        data = input("")
-        if data_send(email, level1):
-            print ("data was send")
-        break
-    else:
-        print("De mail of het wachtwoord is fout")
-        continue
+@app.route("/register")
+def register_page():
+    return render_template("register.html")
+
+@app.route("/dashboard")
+def dashboard():
+    if "user" not in session:
+        return redirect("/login")
+    return render_template("dashboard.html")
+
+@app.route("/languages")
+def languages():
+    if "user" not in session:
+        return redirect("/login")
+    return render_template("languages.html")
+
+@app.route("/levels/<language>")
+def levels(language):
+    if "user" not in session:
+        return redirect("/login")
+
+    acc = get_account(session["user"])
+    unlocked = acc["data"].get(language, [1])
+
+    return render_template("levels.html", language=language, unlocked=unlocked)
+
+@app.route("/play/<language>/<int:level>")
+def play(language, level):
+    if "user" not in session:
+        return redirect("/login")
+    return render_template("play.html", language=language, level=level)
+
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect("/login")
+
+# ---------------- API ---------------- #
+
+@app.route("/api/login", methods=["POST"])
+def login():
+    data = request.json
+    acc = get_account(data.get("email"))
+
+    if acc and acc["wachtwoord"] == data.get("password"):
+        session["user"] = acc["email"]
+        return jsonify({"success": True})
+    return jsonify({"success": False})
+
+@app.route("/api/register", methods=["POST"])
+def register():
+    data = request.json
+
+    if get_account(data.get("email")):
+        return jsonify({"success": False})
+
+    new_acc = {
+        "email": data.get("email"),
+        "wachtwoord": data.get("password"),
+        "data": {
+            "latin": [1],
+            "french": [1]
+        }
+    }
+
+    inlog["Accounts"].append(new_acc)
+    save_inlog()
+
+    return jsonify({"success": True})
+
+@app.route("/api/complete_level", methods=["POST"])
+def complete_level():
+    data = request.json
+    language = data.get("language")
+    level = data.get("level")
+
+    acc = get_account(session["user"])
+
+    if language not in acc["data"]:
+        acc["data"][language] = [1]
+
+    if level + 1 not in acc["data"][language]:
+        acc["data"][language].append(level + 1)
+
+    save_inlog()
+
+    return jsonify({"success": True})
+
+# ---------------- RUN ---------------- #
+
+if __name__ == "__main__":
+    app.run(debug=True)
