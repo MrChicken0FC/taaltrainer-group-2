@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>{{ language }} - Level {{ level }}</h1>
+
+    <p>🎓 Placeholder lesson here...</p>
+
+    <button onclick="completeLevel()" class="btn">Finish Level</button>
+
+<script>
+function completeLevel() {
+    fetch("/api/complete_level", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            language: "{{language}}",
+            level: {{level}}
+        })
+    })
+    .then(() => {
+        alert("Level completed!");
+        window.location.href = "/levels/{{language}}";
+    });
+}
+</script>
+</body>
+</html>

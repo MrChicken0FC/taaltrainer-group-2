@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>{{ language }} Levels</h1>
+
+    {% for level in range(1,6) %}
+        {% if level in unlocked %}
+            <a href="/play/{{language}}/{{level}}" class="btn">Level {{level}}</a>
+        {% else %}
+            <button class="btn locked">🔒 Level {{level}}</button>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

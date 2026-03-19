@@ -103,6 +103,10 @@ while True:
             print("Valid")
 
             inlog["Accounts"].append({"email": email, "wachtwoord": wachtwoord})
+            if email + "Data" not in inlog:
+                inlog[email + "Data"] = []
+
+                inlog[email + "Data"].append({})
             save_inlog()
             break
         else:
