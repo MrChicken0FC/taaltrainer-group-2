@@ -13,7 +13,7 @@ header {
 h1 {
     color:royalblue;
     position:absolute;
-    top: 15%;
+    top: 5%;
     left: 38%
 }
 
@@ -35,16 +35,22 @@ h1 {
     background-color: rgb(0, 215, 215);
     color: aliceblue;
     border:2px solid palevioletred;
-    top:44%;
+    top:200px;
     left:44%
 }
 
 .LatijnsLink {
-    display:none
+    position:absolute;
+    left:40%;
+    top:300px;
+    background-color: rgb(0, 215, 215);
 }
 
 .FransLink {
-    display:none
+    position:absolute;
+    right:40%;
+    top:300px;
+    background-color: rgb(0, 215, 215);
 }
 
 .uitloggen {
@@ -99,4 +105,11 @@ h1 {
 
 .dropdown:hover .uitloggen {
   display: block;
+}
+
+.oefentekst {
+    position:absolute;
+    text-align:center;
+    left:30px;
+    color:palevioletred
 }
