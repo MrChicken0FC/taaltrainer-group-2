@@ -18,27 +18,7 @@
     <br>
     <a href="WachtwoordVergeten.html"></a>
 
-    <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
 
-        fetch("/api/login", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                email: document.getElementById("email").value,
-                password: document.getElementById("password").value
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = "/dashboard";
-            } else {
-                alert("Foute login!");
-            }
-        });
-    });
-    </script>
 </body>
 </html>

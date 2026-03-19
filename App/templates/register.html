@@ -15,28 +15,7 @@
     <br>
     <a href="/login">Terug naar login</a>
 
-    <script>
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
 
-        fetch("/api/register", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                email: document.getElementById("email").value,
-                password: document.getElementById("password").value
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                alert("Account aangemaakt!");
-                window.location.href = "/login";
-            } else {
-                alert(data.message);
-            }
-        });
-    });
-    </script>
 </body>
 </html>
