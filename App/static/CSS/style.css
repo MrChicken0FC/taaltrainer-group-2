@@ -13,7 +13,7 @@ header {
 h1 {
     color:royalblue;
     position:absolute;
-    top: 15%;
+    top: 5%;
     left: 38%
 }
 
@@ -35,16 +35,22 @@ h1 {
     background-color: rgb(0, 215, 215);
     color: aliceblue;
     border:2px solid palevioletred;
-    top:44%;
+    top:200px;
     left:44%
 }
 
 .LatijnsLink {
-    display:none
+    position:absolute;
+    left:40%;
+    top:300px;
+    background-color: rgb(0, 215, 215);
 }
 
 .FransLink {
-    display:none
+    position:absolute;
+    right:40%;
+    top:300px;
+    background-color: rgb(0, 215, 215);
 }
 
 .uitloggen {
@@ -99,4 +105,88 @@ h1 {
 
 .dropdown:hover .uitloggen {
   display: block;
+}
+
+.oefentekst {
+    position:absolute;
+    text-align:center;
+    left:30px;
+    color:palevioletred
+}
+
+/* Inloggen.html */
+
+h2 {
+    color:palevioletred;
+    
+}
+
+input[type=text] {
+    border: 2px solid royalblue;
+    background-color: paleturquoise;
+    padding:6px 6px;
+    border-radius:5px
+}
+
+input[type=password] {
+    border:2px solid royalblue;
+    background-color:paleturquoise;
+    padding:6px 6px;
+    border-radius:5px
+}
+
+label {
+    color:royalblue
+}
+
+.WachtwoordVergetenKnop {
+    color:white;
+    border: 2px solid royalblue;
+    border-radius:4px;
+    background-color:palevioletred;
+    padding:7px 7px;
+    transition:1s;
+    position:absolute;
+    left:680px;
+    top:200px
+}
+
+.SignInKnop {
+    color:white;
+    border: 2px solid royalblue;
+    border-radius: 4px;
+    background-color:palevioletred;
+    padding:7px 7px;
+    transition:1s;
+    position:absolute;
+    left:680px;
+    top:240px
+}
+
+.inlogknop {
+    color:royalblue;
+    border: 2px solid royalblue;
+    border-radius:4px;
+    background-color:paleturquoise;
+    padding:7px 7px;
+    cursor:pointer;
+    transition:1s;
+    position:absolute;
+    left:730px;
+    top:160px
+}
+
+.WachtwoordVergetenKnop:hover {
+    background-color:rgb(236, 49, 111);
+    transition: 1s;
+}
+
+.SignInKnop:hover {
+    background-color:rgb(236, 49, 111);
+    transition:1s
+}
+
+.inlogknop:hover {
+    background-color: rgb(108, 255, 255);
+    transition:1s
 }
