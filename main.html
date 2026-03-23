@@ -7,7 +7,7 @@
 
 <title>TaalTrainerVoorJongeren</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+<link rel="stylesheet" href="design/style.css">
 
 </head>
 
@@ -21,8 +21,9 @@
 <div class="kijkDit">kijk dit</div>
 
 <!-- profiel icoon -->
-<div class="dropdown">
-    <img src="images/profiel.png" alt="profiel" class="profiel">
+<div class="profiel">
+<img src="images/profiel.png" alt="profiel">
+</div>
 
 <!-- uitlog knop -->
 <div class="uitloggen">
@@ -31,17 +32,31 @@
 
 <h1>Taal Trainer Voor Jongeren</h1>
 
+
+<!-- levels knop -->
+<a href="docs/levels.html" class="levelsKnop">Levels</a>
+
+
+<!-- taal pagina links -->
+<a href="docs/Latijns.html" class="LatijnsLink">Latijn uitleg</a>
+<a href="docs/frans.html" class="FransLink">Frans uitleg</a>
+
+
+<hr>
+
+ 
 <h2>Oefen een taal</h2>
 
 <!-- Latijn trainer -->
-<a href="Latijns_levels/level1latijn.html">
+<a href="latin_trainer.html">
 <button>🏛️ Latijn oefenen</button>
 </a>
 
 <!-- Frans trainer -->
-<a href="Frans_levels/level1frans.html">
+<a href="frans_trainer.html">
 <button>🇫🇷 Frans oefenen</button>
 </a>
+
 
 </body>
 </html>
