@@ -1,16 +1,5 @@
 {
   "Accounts": [
-    {
-      "email": "sem@gmail.com",
-      "wachtwoord": "123",
-      "data": {
-        "latin": [
-          1
-        ],
-        "french": [
-          1
-        ]
-      }
-    }
+
   ]
 }
