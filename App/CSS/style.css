@@ -35,7 +35,11 @@ h1 {
     background-color: rgb(0, 215, 215);
     color: aliceblue;
     border:2px solid palevioletred;
+<<<<<<< Updated upstream:App/CSS/style.css
     top:200px;
+=======
+    top:150px;
+>>>>>>> Stashed changes:design/style.css
     left:44%
 }
 
