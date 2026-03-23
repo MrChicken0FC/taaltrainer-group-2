@@ -99,32 +99,32 @@ def latijns_page():
 @app.route("/latijnslvl1")
 def latijnslvl1():
     if "user" not in session: return redirect("/login")
-    return render_template("Latijs_levels/level1latijn.html")
+    return render_template("Latijns_levels/level1latijn.html")
 
 @app.route("/latijnslvl2")
 def latijnslvl2():
     if "user" not in session: return redirect("/login")
-    return render_template("Latijs_levels/level2latijn.html")
+    return render_template("Latijns_levels/level2latijn.html")
 
 @app.route("/latijnslvl3")
 def latijnslvl3():
     if "user" not in session: return redirect("/login")
-    return render_template("Latijs_levels/level3latijn.html")
+    return render_template("Latijns_levels/level3latijn.html")
 
 @app.route("/latijnslvl4")
 def latijnslvl4():
     if "user" not in session: return redirect("/login")
-    return render_template("Latijs_levels/level4latijn.html")
+    return render_template("Latijns_levels/level4latijn.html")
 
 @app.route("/latijnslvl5")
 def latijnslvl5():
     if "user" not in session: return redirect("/login")
-    return render_template("Latijs_levels/level5latijn.html")
+    return render_template("Latijns_levels/level5latijn.html")
 
 @app.route("/latijnslvl6")
 def latijnslvl6():
     if "user" not in session: return redirect("/login")
-    return render_template("Latijs_levels/level6latijn.html")
+    return render_template("Latijns_levels/level6latijn.html")
 
 @app.route("/levels/<language>")
 def levels(language):

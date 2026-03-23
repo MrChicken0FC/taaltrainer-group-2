@@ -11,6 +11,18 @@
           1
         ]
       }
+    },
+    {
+      "email": "abc@abc.nl",
+      "wachtwoord": "abc123",
+      "data": {
+        "latin": [
+          1
+        ],
+        "french": [
+          1
+        ]
+      }
     }
   ]
 }
