@@ -1,8 +1,8 @@
 {
   "Accounts": [
     {
-      "email": "sem@gmail.com",
-      "wachtwoord": "123",
+      "email": "test@gmail.com",
+      "wachtwoord": "test123",
       "data": {
         "latin": [
           1

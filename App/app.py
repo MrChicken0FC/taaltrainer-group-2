@@ -3,7 +3,7 @@ import os
 import json
 
 app = Flask(__name__)
-app.secret_key = "nieuw_secret_key_456"  # changed to clear old sessions
+app.secret_key = "nieuw_secret_key_456"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INLOG_PATH = os.path.join(BASE_DIR, "AccountData", "Account.json")
@@ -23,6 +23,11 @@ def get_account(email):
     for acc in inlog["Accounts"]:
         if acc["email"] == email:
             return acc
+    return None
+
+def login_required():
+    if "user" not in session:
+        return redirect("/login")
     return None
 
 @app.route("/")
@@ -48,31 +53,89 @@ def main():
     if "user" not in session:
         return redirect("/login")
     return render_template("main.html")
-#frans route
+
+# Frans
 @app.route("/frans")
 def frans_page():
-    if "user" not in session:
-        return redirect("/login")
+    if "user" not in session: return redirect("/login")
     return render_template("frans.html")
-#latijns route
+
+@app.route("/franslvl1")
+def franslvl1():
+    if "user" not in session: return redirect("/login")
+    return render_template("Frans_levels/level1frans.html")
+
+@app.route("/franslvl2")
+def franslvl2():
+    if "user" not in session: return redirect("/login")
+    return render_template("Frans_levels/level2frans.html")
+
+@app.route("/franslvl3")
+def franslvl3():
+    if "user" not in session: return redirect("/login")
+    return render_template("Frans_levels/level3frans.html")
+
+@app.route("/franslvl4")
+def franslvl4():
+    if "user" not in session: return redirect("/login")
+    return render_template("Frans_levels/level4frans.html")
+
+@app.route("/franslvl5")
+def franslvl5():
+    if "user" not in session: return redirect("/login")
+    return render_template("Frans_levels/level5frans.html")
+
+@app.route("/franslvl6")
+def franslvl6():
+    if "user" not in session: return redirect("/login")
+    return render_template("Frans_levels/level6frans.html")
+
+# Latijns
 @app.route("/latijns")
 def latijns_page():
-    if "user" not in session:
-        return redirect("/login")
+    if "user" not in session: return redirect("/login")
     return render_template("Latijns.html")
+
+@app.route("/latijnslvl1")
+def latijnslvl1():
+    if "user" not in session: return redirect("/login")
+    return render_template("Latijs_levels/level1latijn.html")
+
+@app.route("/latijnslvl2")
+def latijnslvl2():
+    if "user" not in session: return redirect("/login")
+    return render_template("Latijs_levels/level2latijn.html")
+
+@app.route("/latijnslvl3")
+def latijnslvl3():
+    if "user" not in session: return redirect("/login")
+    return render_template("Latijs_levels/level3latijn.html")
+
+@app.route("/latijnslvl4")
+def latijnslvl4():
+    if "user" not in session: return redirect("/login")
+    return render_template("Latijs_levels/level4latijn.html")
+
+@app.route("/latijnslvl5")
+def latijnslvl5():
+    if "user" not in session: return redirect("/login")
+    return render_template("Latijs_levels/level5latijn.html")
+
+@app.route("/latijnslvl6")
+def latijnslvl6():
+    if "user" not in session: return redirect("/login")
+    return render_template("Latijs_levels/level6latijn.html")
 
 @app.route("/levels/<language>")
 def levels(language):
-    if "user" not in session:
-        return redirect("/login")
+    if "user" not in session: return redirect("/login")
     acc = get_account(session["user"])
     unlocked = acc["data"].get(language, [1])
     return render_template("levels.html", language=language, unlocked=unlocked)
 
 @app.route("/play/<language>/<int:level>")
 def play(language, level):
-    if "user" not in session:
-        return redirect("/login")
+    if "user" not in session: return redirect("/login")
     return render_template("play.html", language=language, level=level)
 
 @app.route("/logout")
@@ -97,10 +160,7 @@ def register():
     new_acc = {
         "email": data.get("email"),
         "wachtwoord": data.get("password"),
-        "data": {
-            "latin": [1],
-            "french": [1]
-        }
+        "data": {"latin": [1], "french": [1]}
     }
     inlog["Accounts"].append(new_acc)
     save_inlog()
