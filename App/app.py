@@ -2,17 +2,12 @@ from flask import Flask, request, jsonify, session, redirect, render_template
 import os
 import json
 
-<<<<<<< HEAD
 app = Flask(__name__)
-=======
-app = Flask(__name__, template_folder=".")
->>>>>>> e53b089bfcb04d396eb6f376d4c61d78dbaab9fb
 app.secret_key = "super_secret_key_123"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INLOG_PATH = os.path.join(BASE_DIR, "AccountData", "Account.json")
 
-# LOAD JSON
 try:
     with open(INLOG_PATH, "r", encoding="utf-8") as f:
         inlog = json.load(f)
@@ -30,25 +25,20 @@ def get_account(email):
             return acc
     return None
 
-# ---------------- ROUTES ---------------- #
-
 @app.route("/")
 def home():
     if "user" in session:
         return redirect("/main")
     return redirect("/login")
 
-#login path
 @app.route("/login")
 def login_page():
     return render_template("login.html")
 
-#reg path
 @app.route("/register")
 def register_page():
     return render_template("register.html")
 
-#main path
 @app.route("/main")
 def main():
     if "user" not in session:
@@ -65,10 +55,8 @@ def languages():
 def levels(language):
     if "user" not in session:
         return redirect("/login")
-
     acc = get_account(session["user"])
     unlocked = acc["data"].get(language, [1])
-
     return render_template("levels.html", language=language, unlocked=unlocked)
 
 @app.route("/play/<language>/<int:level>")
@@ -82,13 +70,10 @@ def logout():
     session.pop("user", None)
     return redirect("/login")
 
-# ---------------- API ---------------- #
-
 @app.route("/api/login", methods=["POST"])
 def login():
     data = request.json
     acc = get_account(data.get("email"))
-
     if acc and acc["wachtwoord"] == data.get("password"):
         session["user"] = acc["email"]
         return jsonify({"success": True})
@@ -97,10 +82,8 @@ def login():
 @app.route("/api/register", methods=["POST"])
 def register():
     data = request.json
-
     if get_account(data.get("email")):
-        return jsonify({"success": False})
-
+        return jsonify({"success": False, "message": "Account bestaat al!"})
     new_acc = {
         "email": data.get("email"),
         "wachtwoord": data.get("password"),
@@ -109,10 +92,8 @@ def register():
             "french": [1]
         }
     }
-
     inlog["Accounts"].append(new_acc)
     save_inlog()
-
     return jsonify({"success": True})
 
 @app.route("/api/complete_level", methods=["POST"])
@@ -120,20 +101,13 @@ def complete_level():
     data = request.json
     language = data.get("language")
     level = data.get("level")
-
     acc = get_account(session["user"])
-
     if language not in acc["data"]:
         acc["data"][language] = [1]
-
     if level + 1 not in acc["data"][language]:
         acc["data"][language].append(level + 1)
-
     save_inlog()
-
     return jsonify({"success": True})
-
-# ---------------- RUN ---------------- #
 
 if __name__ == "__main__":
     app.run(debug=True)
