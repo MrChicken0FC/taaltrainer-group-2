@@ -3,7 +3,7 @@ import os
 import json
 
 app = Flask(__name__)
-app.secret_key = "super_secret_key_123"
+app.secret_key = "nieuw_secret_key_456"  # changed to clear old sessions
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 INLOG_PATH = os.path.join(BASE_DIR, "AccountData", "Account.json")
@@ -35,6 +35,10 @@ def home():
 def login_page():
     return render_template("login.html")
 
+@app.route("/vergeten")
+def vergeten_page():
+    return render_template("WachtwoordVergeten.html")
+
 @app.route("/register")
 def register_page():
     return render_template("register.html")
@@ -44,12 +48,18 @@ def main():
     if "user" not in session:
         return redirect("/login")
     return render_template("main.html")
-
-@app.route("/languages")
-def languages():
+#frans route
+@app.route("/frans")
+def frans_page():
     if "user" not in session:
         return redirect("/login")
-    return render_template("languages.html")
+    return render_template("frans.html")
+#latijns route
+@app.route("/latijns")
+def latijns_page():
+    if "user" not in session:
+        return redirect("/login")
+    return render_template("Latijns.html")
 
 @app.route("/levels/<language>")
 def levels(language):
