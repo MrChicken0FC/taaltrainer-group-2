@@ -6,11 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TaalTrainerVoorJongeren</title>
-
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
-
+<link rel="stylesheet" href="../static/CSS/style.css">
 </head>
-
 <body>
 
 <header>
@@ -28,19 +25,32 @@
 <div class="uitloggen">
 <a href="logout.html">Uitloggen</a>
 </div>
+</div>
 
 <h1>taal trainer voor jongeren</h1>
 
+<!-- levels knop -->
+<a href="docs/levels.html" class="levelsKnop">Levels</a>
+
+
+
+
+<hr>
+
+<div class="oefentekst">
 <h2>Oefen een taal</h2>
+</div>
 
 <!-- Latijn trainer -->
-<a href="Latijns_levels/level1latijn.html">
+<a href="Latijns_levels/level1latijn.html" class="LatijnsLink">
 <button>🏛️ Latijn oefenen</button>
 </a>
 
 <!-- Frans trainer -->
-<a href="Frans_levels/level1frans.html">
+<a href="Frans_levels/level1frans.html" class="FransLink">
 <button>🇫🇷 Frans oefenen</button>
+
+<script src="../static/Javascript/script.js"></script>
 </a>
 
 </body>

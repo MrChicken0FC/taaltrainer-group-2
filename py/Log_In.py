@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, session, redirect, render_template
 import os
 import json
 
-app = Flask(__name__, template_folder=".")
+app = Flask(__name__)
 app.secret_key = "super_secret_key_123"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -31,25 +31,22 @@ def get_account(email):
 @app.route("/")
 def home():
     if "user" in session:
-        return redirect("/main")
+        return redirect("/dashboard")
     return redirect("/login")
 
-#login path
 @app.route("/login")
 def login_page():
     return render_template("login.html")
 
-#reg path
 @app.route("/register")
 def register_page():
     return render_template("register.html")
 
-#main path
-@app.route("/main")
-def main():
+@app.route("/dashboard")
+def dashboard():
     if "user" not in session:
         return redirect("/login")
-    return render_template("main.html")
+    return render_template("dashboard.html")
 
 @app.route("/languages")
 def languages():
