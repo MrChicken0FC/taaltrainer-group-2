@@ -35,26 +35,22 @@ h1 {
     background-color: rgb(0, 215, 215);
     color: aliceblue;
     border:2px solid palevioletred;
-<<<<<<< HEAD:App/CSS/style.css
-<<<<<<< Updated upstream:App/CSS/style.css
-    top:200px;
-=======
-    top:150px;
->>>>>>> Stashed changes:design/style.css
-=======
-    top:44%;
->>>>>>> a4ca184fb26c121cccdab5bbbe41a7e1d57f0744:App/static/CSS/style.css
+
     left:44%
 }
-
 .LatijnsLink {
-    display:none
+    position:absolute;
+    left:40%;
+    top:300px;
+    background-color: rgb(0, 215, 215);
 }
 
 .FransLink {
-    display:none
+    position:absolute;
+    right:40%;
+    top:300px;
+    background-color: rgb(0, 215, 215);
 }
-
 .uitloggen {
     display:none;
     position:absolute;
@@ -107,68 +103,4 @@ h1 {
 
 .dropdown:hover .uitloggen {
   display: block;
-<<<<<<< HEAD:App/CSS/style.css
-}
-
-.oefentekst {
-    position:absolute;
-    text-align:center;
-    left:30px;
-    color:palevioletred
-}
-
-/* Inloggen.html */
-
-h2 {
-    color:palevioletred;
-    
-}
-
-input[type=text] {
-    border: 2px solid royalblue;
-    background-color: paleturquoise;
-    padding:6px 6px;
-    border-radius:5px
-}
-
-input[type=password] {
-    border:2px solid royalblue;
-    background-color:paleturquoise;
-    padding:6px 6px;
-    border-radius:5px
-}
-
-label {
-    color:royalblue
-}
-
-.WachtwoordVergetenKnop {
-    color:white;
-    border: 2px solid royalblue;
-    border-radius:4px;
-    background-color:palevioletred;
-    padding:7px 7px
-}
-
-.SignInKnop {
-    color:white;
-    border: 2px solid royalblue;
-    border-radius: 4px;
-    background-color:palevioletred;
-    padding:7px 7px;
-}
-
-.inlogknop {
-    color:royalblue;
-    border: 2px solid royalblue;
-    border-radius:4px;
-    background-color:paleturquoise;
-    padding:7px 7px;
-}
-
-.WachtwoordVergetenKnop:hover {
-    background-color:rgb(236, 49, 111);
-    transition: 1s;
-=======
->>>>>>> a4ca184fb26c121cccdab5bbbe41a7e1d57f0744:App/static/CSS/style.css
 }

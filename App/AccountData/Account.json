@@ -1,5 +1,16 @@
 {
   "Accounts": [
-
+    {
+      "email": "test@gmail.com",
+      "wachtwoord": "test123",
+      "data": {
+        "latin": [
+          1
+        ],
+        "french": [
+          1
+        ]
+      }
+    }
   ]
 }
