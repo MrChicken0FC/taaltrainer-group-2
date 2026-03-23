@@ -113,3 +113,57 @@ h1 {
     left:30px;
     color:palevioletred
 }
+
+/* Inloggen.html */
+
+h2 {
+    color:palevioletred;
+    
+}
+
+input[type=text] {
+    border: 2px solid royalblue;
+    background-color: paleturquoise;
+    padding:6px 6px;
+    border-radius:5px
+}
+
+input[type=password] {
+    border:2px solid royalblue;
+    background-color:paleturquoise;
+    padding:6px 6px;
+    border-radius:5px
+}
+
+label {
+    color:royalblue
+}
+
+.WachtwoordVergetenKnop {
+    color:white;
+    border: 2px solid royalblue;
+    border-radius:4px;
+    background-color:palevioletred;
+    padding:7px 7px
+}
+
+.SignInKnop {
+    color:white;
+    border: 2px solid royalblue;
+    border-radius: 4px;
+    background-color:palevioletred;
+    padding:7px 7px;
+}
+
+.inlogknop {
+    color:royalblue;
+    border: 2px solid royalblue;
+    border-radius:4px;
+    background-color:paleturquoise;
+    padding:7px 7px;
+}
+
+.WachtwoordVergetenKnop:hover {
+    background-color:rgb(236, 49, 111);
+    transition: 1s;
+}
