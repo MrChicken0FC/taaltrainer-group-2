@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Frans level(2)</title>
+    <script src="../../static/Javascript/check.js"></script>
 </head>
 <body>
-<a name="level2"></a>
-<h2>Level 2</h2>
-<p>Wat betekend roi = ?</p>
-<a href="#koning">koning</a> <button>Controleer</button>
 <br>
-<br> 
-<a href="#priester">priester</a> <button>Controleer</button>
+<button id="backMenuKnop" onclick="window.location.href='../frans'"> Terug naar het Frans menu? </button>
 <br>
-<br>
-<a href="#soldaat">soldaat</a> <button>Controleer</button>
-
+<h1>Frans Levels</h1>
+<p>Klik het juiste antwoord om door te gaan.</p>
 <hr>
-    
+<h2>Level 2</h2>
+<p>Wat betekent prince = ?</p>
+<button onclick="controleer(false, 'french', 2)">Koning</button><br><br>
+<button onclick="controleer(false, 'french', 2)">Priester</button><br><br>
+<button onclick="controleer(true, 'french', 2)">Prins</button>
+<br><br>
+<p id="feedback"></p>
+<button id="volgendeKnop" style="display:none;" onclick="window.location.href='/franslvl3'">Volgende -></button>
+<button id="opnieuwKnop" style="display:none;" onclick="opnieuw()">Opnieuw proberen</button>
+<hr>
 </body>
 </html>

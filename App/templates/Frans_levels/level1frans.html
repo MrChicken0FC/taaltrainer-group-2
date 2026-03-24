@@ -1,28 +1,27 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="nl">
 <head>
-<title>Frans Levels</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frans level(1)</title>
+    <script src="../../static/Javascript/check.js"></script>
 </head>
-
 <body>
-
+<br>
+<button id="backMenuKnop" onclick="window.location.href='../frans'"> Terug naar het Frans menu? </button>
+<br>
 <h1>Frans Levels</h1>
 <p>Klik het juiste antwoord om door te gaan.</p>
-
 <hr>
-
 <h2>Level 1</h2>
 <p>Wat betekent eau = ?</p>
-<a href="#water"> water </a> <button>Controleer</button>
-<br>
-<br>
-<a href="#zon"> zon </a> <button>Controleer</button>
-<br>
-<br>
-<a href="#maan"> maan </a> <button>Controleer</button>
-
+<button onclick="controleer(false, 'french', 1)">Zon</button><br><br>
+<button onclick="controleer(true, 'french', 1)">Water</button><br><br>
+<button onclick="controleer(false, 'french', 1)">Maan</button>
+<br><br>
+<p id="feedback"></p>
+<button id="volgendeKnop" style="display:none;" onclick="window.location.href='/franslvl2'">Volgende -></button>
+<button id="opnieuwKnop" style="display:none;" onclick="opnieuw()">Opnieuw proberen</button>
 <hr>
-
 </body>
 </html>

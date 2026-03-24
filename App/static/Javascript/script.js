@@ -1,4 +1,4 @@
-// ---- LOGIN ----
+// login dingus om data te senden naar python door de api te pakken
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
     loginForm.addEventListener("submit", function(e) {
@@ -15,7 +15,7 @@ if (loginForm) {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                window.location.href = "/main";  // fixed from /dashboard
+                window.location.href = "/main";  
             } else {
                 alert("Foute login!");
             }
@@ -23,7 +23,7 @@ if (loginForm) {
     });
 }
 
-// ---- REGISTER ----
+// regristeren 
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
     registerForm.addEventListener("submit", function(e) {

@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Latijn level(3)</title>
+    <script src="../../static/Javascript/check.js"></script>
 </head>
 <body>
-    <!-- Level 3 -->
-<a name="level3"></a>
-<h2>Level 3</h2>
-<p>Wat betekend rex = ?</p>
-<a href="#koning">koning (goed)</a> <button>Controleer</button>
 <br>
+<button id="backMenuKnop" onclick="window.location.href='../latijns'"> Terug naar het Latijns menu? </button>
 <br>
-<a href="#priester">priester (fout)</a> <button>Controleer</button>
-<br>
-<br>
-<a href="#soldaat">soldaat (fout)</a> <button>Controleer</button>
-
+<h1>Latijn Taaltrainer</h1>
+<p>Ga naar het volgende level als je het juiste antwoord kiest!</p>
 <hr>
-
+<h2>Level 3</h2>
+<p>Wat betekent rex = ?</p>
+<button onclick="controleer(true, 'latin', 3)">Koning</button><br><br>
+<button onclick="controleer(false, 'latin', 3)">Priester</button><br><br>
+<button onclick="controleer(false, 'latin', 3)">Soldaat</button>
+<br><br>
+<p id="feedback"></p>
+<button id="volgendeKnop" style="display:none;" onclick="window.location.href='/latijnslvl4'">Volgende -></button>
+<button id="opnieuwKnop" style="display:none;" onclick="opnieuw()">Opnieuw proberen</button>
+<hr>
 </body>
 </html>

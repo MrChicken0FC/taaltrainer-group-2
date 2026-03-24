@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Latijn level(6)</title>
+    <script src="../../static/Javascript/check.js"></script>
 </head>
 <body>
-    <!-- Level 5 -->
-<a name="level5"></a>
-<h2>Level 5</h2>
-<p>Wat betekend Halo = ?</p>
-<a href="#hallo">hallo</a> <button>Controleer</button>
 <br>
+<button id="backMenuKnop" onclick="window.location.href='../latijns'"> Terug naar het Latijns menu? </button>
 <br>
-<a href="#goededag">goededag</a> <button>Controleer</button>
-<br>
-<br>
-<a href="#vanacht">vanacht</a> <button>Controleer</button>
-
+<h1>Latijn Taaltrainer</h1>
+<p>Ga naar het volgende level als je het juiste antwoord kiest!</p>
+<hr>
+<h2>Level 6</h2>
+<p>Wat betekent Hola = ?</p>
+<button onclick="controleer(false, 'latin', 6)">Hol</button><br><br>
+<button onclick="controleer(false, 'latin', 6)">Kip</button><br><br>
+<button onclick="controleer(true, 'latin', 6)">Hallo</button>
+<br><br>
+<p id="feedback"></p>
+<button id="volgendeKnop" style="display:none;" onclick="window.location.href='../latijns.html'">Terug naar levels</button>
+<button id="opnieuwKnop" style="display:none;" onclick="opnieuw()">Opnieuw proberen</button>
 <hr>
 </body>
 </html>

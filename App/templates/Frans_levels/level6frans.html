@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Frans level(6)</title>
+    <script src="../../static/Javascript/check.js"></script>
 </head>
 <body>
-    <a name="level6"></a>
-<h2>Level 6</h2>
-<p>Wat betkent maison = ?</p>
-<a href="#einde">huis</a> <button>Controleer</button>
 <br>
+<button id="backMenuKnop" onclick="window.location.href='../frans'"> Terug naar het Frans menu? </button>
 <br>
-<a href="#">tempel</a> <button>Controleer</button>
-<br>
-<br>
-<a href="#">stad</a> <button>Controleer</button>
-
+<h1>Frans Levels</h1>
+<p>Klik het juiste antwoord om door te gaan.</p>
 <hr>
-
-<a name="einde"></a>
-<h2>Gefeliciteerd!</h2>
-<p>Je hebt alle levels gehaald!</p>
-
-<br>
-<a href="../index.html">Terug naar home</a>
-
+<h2>Level 6</h2>
+<p>Wat betekent cœur = ?</p>
+<button onclick="controleer(true, 'french', 6)">Hart</button><br><br>
+<button onclick="controleer(false, 'french', 6)">Zwaan</button><br><br>
+<button onclick="controleer(false, 'french', 6)">Zuur</button>
+<br><br>
+<p id="feedback"></p>
+<button id="volgendeKnop" style="display:none;" onclick="window.location.href='../frans.html'">Terug naar levels</button>
+<button id="opnieuwKnop" style="display:none;" onclick="opnieuw()">Opnieuw proberen</button>
+<hr>
 </body>
 </html>
