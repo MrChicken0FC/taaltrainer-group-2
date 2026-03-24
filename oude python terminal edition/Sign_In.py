@@ -3,7 +3,7 @@ import json
 
 #pathing
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-INLOG_PATH = os.path.join(BASE_DIR, "AccountData", "Account.json")
+INLOG_PATH = os.path.join(BASE_DIR, "AccountData", "Accounts.json")
 
 #Json load
 try:
