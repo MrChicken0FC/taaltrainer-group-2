@@ -190,3 +190,17 @@ label {
     background-color: rgb(108, 255, 255);
     transition:1s
 }
+
+h3 {
+    color:palevioletred
+}
+
+button {
+    color:royalblue;
+    border: 2px solid palevioletred;
+    border-radius:4px;
+    background-color:paleturquoise;
+    padding:10px 10px;
+    cursor:pointer;
+    transition:1s;
+}
